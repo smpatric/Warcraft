@@ -10,14 +10,15 @@ class Footman < Unit
   end
 
   def attack!(enemy)
-    if enemy.class == "Barracks"
-      enemy.damage((self.attack_power / 2).ceil)
+    if enemy.kind_of? Barracks
+      enemy.damage(attack_power / 2)
     else
-      enemy.damage(self.attack_power)
+      enemy.damage(attack_power)
     end
   end
 
   def damage(amount)
-    self.health_points -= amount
+    @health_points -= amount
   end
+
 end

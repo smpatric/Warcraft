@@ -10,13 +10,13 @@ class Unit
     health_points <= 0
   end
 
-
   def attack!(enemy)
     if enemy.dead?
-      puts "Your enemy is already dead"
-      return false
+      raise "Your enemy is already dead!"
+    elsif dead?
+      raise "You're Dead!"
     else
-      enemy.damage(self.attack_power)
+      enemy.damage(attack_power)
     end
   end
 
